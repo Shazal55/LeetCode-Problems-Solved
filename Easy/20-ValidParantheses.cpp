@@ -24,7 +24,7 @@ bool isValid(string s) {
     return st.empty();
 }
 int main(){
-    string x = "()[{}";
+    string x = "()[]{}";
     cout<<isValid(x)<<endl;
     return 0;
 }
