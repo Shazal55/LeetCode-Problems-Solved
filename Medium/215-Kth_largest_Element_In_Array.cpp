@@ -24,7 +24,7 @@ int findKthLargest1(vector<int>& nums, int k) { // O(n)
     return nums[max];
 }
 
-int findKthLargest2(vector<int>& nums, int k) { // 
+int findKthLargest2(vector<int>& nums, int k) { // O(n) CountSort Method
     vector<int> count(20001,0);
     for(int num : nums){
         count[num + 10000]++;
