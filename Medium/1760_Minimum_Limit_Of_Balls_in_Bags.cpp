@@ -34,3 +34,4 @@ int main(){
     cout<<minimumSize(vec,maxOperations)<<endl;
     return 0;
 }
+//Output : 2
