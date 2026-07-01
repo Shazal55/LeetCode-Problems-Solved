@@ -34,10 +34,37 @@ void merge1(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     }
     cout<<endl;
 }
+void merge2(vector<int>& nums1,int m, vector<int>& nums2, int n){// TC : O(m+n), SC: O(1)
+    int i = m-1;
+    int j = n-1;
+    int idx = m+n-1;
+    while( i>= 0 && j >= 0){
+        if(nums1[i] >nums2[j]){
+            nums1[idx] = nums1[i];
+            idx--;
+            i--;
+        }
+        else{
+            nums1[idx] =  nums2[j];
+            idx--;
+            j--;
+        }
+    }
+    while(j>= 0){
+        nums1[idx] = nums2[j];
+        idx--;
+        j--;
+    }
+}
 int main(){
     vector<int> vec1 = {1,2,3,0,0,0};
     int m = 3;
     vector<int> vec2 = {2,5,6};
     int n = 3;
-    merge1(vec1,m,vec2,n);
+    merge2(vec1,m,vec2,n);
+    for(int val : vec1){
+        cout<<val<<" ";
+    }
+    cout<<endl;
+    return 0;
 }
