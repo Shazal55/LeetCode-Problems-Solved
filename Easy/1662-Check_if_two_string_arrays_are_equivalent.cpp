@@ -13,7 +13,7 @@ bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {//TC: O
     return str1 == str2;
 }
 
-bool arrayStringsAreEqual1(vector<string>& word1, vector<string>& word2){
+bool arrayStringsAreEqual1(vector<string>& word1, vector<string>& word2){//TC: O(n+m), SC : O(1)
     int i = 0, j = 0;
     int k = 0, l = 0;
     while(i<word1.size() && k< word2.size()){
