@@ -20,3 +20,4 @@ int main(){
     cout<<findKthLargest(vec,k)<<endl;
     return 0;
 }
+//-10000 <= nums[i] <= 10000

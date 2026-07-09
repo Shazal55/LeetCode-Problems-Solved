@@ -33,3 +33,8 @@ int main(){
     PrintVector(vec);
     return 0;
 }
+/*
+0s        1s       Unknown        2s
+|---------|--------|-------------|---------|
+0       low      mid           high
+*/
