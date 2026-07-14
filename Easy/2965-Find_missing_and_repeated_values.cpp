@@ -2,7 +2,7 @@
 #include <vector>
 #include <unordered_set>
 using namespace std;
-vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
+vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {//O(n^2)
     unordered_set<int> s;
     vector<int> ans;
     int n = grid.size();
