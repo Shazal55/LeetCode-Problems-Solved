@@ -43,7 +43,7 @@ vector<int> twoSum1(vector<int>& nums, int target){//TC : O(nlogn)
     return index;
 }
 //Optimized Approach
-vector<int> twoSum2(vector<int>& nums, int target){
+vector<int> twoSum2(vector<int>& nums, int target){//O(n)
     unordered_map<int,int> m;
     vector<int> ans;
     int n = nums.size();
