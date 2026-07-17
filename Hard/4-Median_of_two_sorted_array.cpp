@@ -19,7 +19,7 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {//O(NlogN
     return ans;
 }
 //Optimal Appraoch
-double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {//O(m+n)
+double findMedianSortedArrays1(vector<int>& nums1, vector<int>& nums2) {//O(m+n)
     int m = nums1.size();
     int n = nums2.size();
     vector<int> merge;
