@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void printSubsets(vector<int> &arr,vector<int> &ans, int i){
+void printSubsets(vector<int> &arr,vector<int> &ans, int i){//TC: O(n2^n)
     if(i == arr.size()){
         for(int val : ans){
             cout<<val<<" ";
