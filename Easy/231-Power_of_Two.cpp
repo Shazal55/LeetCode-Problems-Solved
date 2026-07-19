@@ -1,6 +1,7 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
-bool isPowerOfTwo(int n) {//O(logn)
+bool isPowerOfTwo(int n) {//O(logn base 2)
     if(n <= 0){
         return false;
     }
@@ -18,9 +19,16 @@ bool isPowerOfTwo1(int n){
     }
     return isPowerOfTwo1(n/2);
 }
+bool isPowerOfTwo2(int n){
+    if(n <= 0){
+        return false;
+    }
+    double x = log10(n)/log10(2); 
+    return x == floor(x);
+}
 int main(){
     int n = 16;
-    if(isPowerOfTwo1){
+    if(isPowerOfTwo2){
         cout<<"True";
     }
     else{
