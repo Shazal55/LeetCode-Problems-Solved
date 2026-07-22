@@ -27,7 +27,7 @@ bool isSafe(vector<string> &board,int row,int col,int n){//O(n)
 void NQueen(vector<string> &board,int row, int n,vector<vector<string>> &ans){
     if(row == n){
         ans.push_back({board});
-        return;
+        return;  
     }
     for(int j =0; j<n; j++){
         if(isSafe(board,row,j,n)){
