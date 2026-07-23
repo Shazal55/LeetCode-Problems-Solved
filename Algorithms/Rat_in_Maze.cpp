@@ -17,7 +17,7 @@ void getAnswer(vector<vector<int>> &Maze,int row,int col,string path, vector<str
     getAnswer(Maze,row,col-1,path+"L",ans);//Left
     Maze[row][col] = 1;
 }
-vector<string> findPath(vector<vector<int>> &Maze){
+vector<string> findPath(vector<vector<int>> &Maze){// O(4^(n^2))
     int n = Maze.size();
     int m = Maze[0].size();
     vector<string> ans;
