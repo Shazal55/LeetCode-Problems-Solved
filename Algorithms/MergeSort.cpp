@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void merge(vector<int> &arr,int st,int mid, int end){
+void merge(vector<int> &arr,int st,int mid, int end){//O(n)
     vector<int> temp;
     int i = st;
     int j = mid+1;
@@ -28,7 +28,7 @@ void merge(vector<int> &arr,int st,int mid, int end){
     }
 
 }
-void mergeSort(vector<int> &arr,int st,int end){
+void mergeSort(vector<int> &arr,int st,int end){//TC: O(nlogn), SC: O(n)
     if(st<end){
         int mid = st + (end-st)/2;
         mergeSort(arr,st,mid);
