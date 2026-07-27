@@ -59,6 +59,7 @@ vector<int> twoSum2(vector<int>& nums, int target){//O(n)
     }
     return ans;
 }
+
 int main(){
     vector<int> vec = {2,7,11,15};
     int target = 9;
