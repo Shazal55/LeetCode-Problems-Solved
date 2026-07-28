@@ -22,9 +22,8 @@ void CombSum(vector<int>& candidates,vector<vector<int>> &ans,vector<int> comb,i
         CombSum(candidates,ans,comb,i+1,target-candidates[i]);
         comb.pop_back();
     }
-    
-    
 }
+
 vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
     sort(candidates.begin(),candidates.end());
     vector<vector<int>> ans;
@@ -32,6 +31,7 @@ vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
     CombSum(candidates,ans,comb,0,target);
     return ans;
 }
+
 int main(){
     vector<int> arr = {10,1,2,7,6,1,5};
     int target = 8;
