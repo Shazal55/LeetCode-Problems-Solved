@@ -10,7 +10,7 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {//O(n+m)
         if(list1 == NULL || list2 == NULL){
             return list1==NULL ? list2 : list1;
         }
