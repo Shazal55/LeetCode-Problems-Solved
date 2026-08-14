@@ -2,7 +2,7 @@
 #include <vector>
 #include <stack>
 using namespace std;
-vector<int> nextGreaterElement(vector<int> &nums){
+vector<int> nextGreaterElement(vector<int> &nums){//TC : O(n), SC : O(n)
     stack<int> s;
     vector<int> ans(nums.size(),0);
     for(int i = nums.size()-1; i>= 0; i--){
