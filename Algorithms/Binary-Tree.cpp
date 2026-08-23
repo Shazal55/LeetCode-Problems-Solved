@@ -101,11 +101,37 @@ void levelOrderPrint1(Node *root){ //TC : O(n)
     cout<<endl;
 }
 
+int heightofTree(Node *root){
+    if(root == NULL){
+        return 0;
+    }
+    int left = heightofTree(root->left);
+    int right = heightofTree(root->right);
+    return max(left,right)+1;
+}
+int countNodes(Node* root) {
+    if(root == NULL){
+        return 0;
+    }
+    int left = countNodes(root->left);
+    int right = countNodes(root->right);
+    return (left+right)+1;
+}
+
+int SumOfNodes(Node *root){
+    if(root == NULL){
+        return 0;
+    }
+    int leftSum = SumOfNodes(root->left);
+    int rightSum = SumOfNodes(root->right);
+    return leftSum + rightSum + root->data;
+}
+
 int main(){
     vector<int> preorder = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
     Node *root = buildTree(preorder);
-    
-    levelOrderPrint1(root);
+    cout<<"Sum of Nodes : "<<SumOfNodes(root)<<endl;
+
 
     return 0; 
 }
