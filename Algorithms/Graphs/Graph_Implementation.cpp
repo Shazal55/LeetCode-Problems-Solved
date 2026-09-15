@@ -57,16 +57,15 @@ public:
         }
     }
     void DFSTraversal(){ //O(V+E)
-        int src = 0;
         vector<bool> vis(V,false);
         for(int i = 0; i<V; i++){
             if(!vis[i]){
                 DFShelper(i,vis);
             }
         }
-        
         cout<<endl;
     }
+    // Cyclle detection using DFS
     bool isCycle(int src, int parent, vector<bool> &vis){
         vis[src] = true;
         list<int> neighbours = arr[src];
@@ -93,9 +92,42 @@ public:
         } 
         return false;
     }
+    //Cycle Detection using BFS
+    bool isCycle_BFS_helper(int src, vector<bool> &vis){
+        queue<pair<int,int>> q;
+        q.push({src,-1});
+        vis[src] = true;
+        while(q.size() > 0){
+            pair<int,int> current = q.front();
+            q.pop();
+            int u = current.first;
+            int parent = current.second;
+            for(int v : arr[u]){
+                if(!vis[v]){
+                    vis[v] = true;
+                    q.push({v,u});
+                }
+                else if( v != parent){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    bool isCycle_BFS(){ //For disconnected Graphs, O(V+E)
+        vector<bool> vis(V,false);
+        for(int i= 0; i<V; i++){
+            if(!vis[i]){
+                if(isCycle_BFS_helper(i,vis)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 };
 int main(){
-    vector<bool> vis();
+    vector<bool> vis(5,false);
     Graph g(5);
     g.addEdge(0,1);
     g.addEdge(0,2);
@@ -109,7 +141,7 @@ int main(){
     // cout<<"Depth First Search Traversal :- ";
     // g.DFSTraversal();
 
-    cout << g.CycleDetection_DFS()<<endl;
+    cout << g.isCycle_BFS()<<endl;
     return 0;
 
 }
