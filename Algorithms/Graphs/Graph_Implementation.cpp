@@ -2,6 +2,7 @@
 #include <list>
 #include <vector>
 #include <queue>
+#include <stack>
 using namespace std;
 class Graph{
 private:
@@ -157,26 +158,47 @@ public:
                     return true;
                 }
             }
-            
         }
         return false;
+    }
+
+    //Topological sorting
+    void helper1(int curr, vector<int> &vis, stack<int> &s){
+        vis[curr] = true;
+        for(int val : arr[curr]){
+            if(!vis[val]){
+                helper1(val,vis,s);
+            }
+        }
+        s.push(curr);
+    }
+    void topologicalSorting(){ //O(V+E)
+        vector<int> vis(V,false);
+        stack<int> s;
+        for(int i = 0; i<V; i++){
+            if(!vis[i]){
+                helper1(i,vis,s);
+            }
+        }
+        while(!s.empty()){
+            cout << s.top()<<" ";
+            s.pop();
+        }
+        cout<<endl;
     }
 };
 int main(){
 
-    Graph g(5);
-    g.addEdge_directed(1,0);
-    g.addEdge_directed(0,2);
+    Graph g(6);
+    g.addEdge_directed(3,1);
     g.addEdge_directed(2,3);
-    g.addEdge_directed(3,0);
+    g.addEdge_directed(4,0);
+    g.addEdge_directed(4,1);
+    g.addEdge_directed(5,0);
+    g.addEdge_directed(5,3);
+    
 
-    // g.printAdjacencyList();
-    // cout<<"Breadth First Search Traversal :- ";
-    // g.BFSTraversal();
-    // cout<<"Depth First Search Traversal :- ";
-    // g.DFSTraversal();
-
-    cout << g.isCycle_Directed_DFS()<<endl;
+    g.topologicalSorting();
     return 0;
 
 }
