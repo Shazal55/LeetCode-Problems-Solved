@@ -186,6 +186,45 @@ public:
         }
         cout<<endl;
     }
+
+    //Topological Sorting using Kahn's Algorithm
+    //Focus on indegrees(no. of incoming edges to the node)
+    //Time Complexity -> O(V+E)
+    //Output : 4 5 0 2 3 1 
+    void Kahn_Algo(){
+        vector<int> res;
+        //Find Indegrees
+        vector<int> indeg(V,0);
+        for(int u = 0; u<V; u++){
+            for(int v : arr[u]){
+                indeg[v]++;
+            }
+        }
+        //Add 0 indeg to queue
+        queue<int> q;
+        for(int i = 0; i<V; i++){
+            if(indeg[i] == 0){
+                q.push(i);
+            }
+        }
+
+        //BFS
+        while(q.size() > 0){
+            int curr = q.front();
+            res.push_back(curr);
+            q.pop();
+            for(int v : arr[curr]){
+                indeg[v]--;
+                if(indeg[v] == 0){
+                    q.push(v);
+                }
+            }
+        }
+        for(int val : res){
+            cout<<val <<" ";
+        }
+        cout<<endl;
+    }
 };
 int main(){
 
@@ -195,10 +234,10 @@ int main(){
     g.addEdge_directed(4,0);
     g.addEdge_directed(4,1);
     g.addEdge_directed(5,0);
-    g.addEdge_directed(5,3);
+    g.addEdge_directed(5,2);
     
 
-    g.topologicalSorting();
+    g.Kahn_Algo();
     return 0;
 
 }
