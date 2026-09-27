@@ -17,7 +17,7 @@ void Dijkstra(int src, vector<vector<Edge>> g, int V){ // TC : O((V+E)log(V)) or
     dist[src] = 0;
     //<dist[u],u>
     // priority_queue<int> pq; Max_Heap
-    priority_queue<pair<int,int>,vector<pair<int,int>>, greater<pair<int,int>> > pq;
+    priority_queue<pair<int,int>,vector<pair<int,int>>, greater<pair<int,int>> > pq; //Min Heap
     pq.push({0,src});
     while(pq.size() > 0){
         int u = pq.top().second;
