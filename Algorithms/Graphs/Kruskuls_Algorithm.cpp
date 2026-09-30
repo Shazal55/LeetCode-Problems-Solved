@@ -59,14 +59,15 @@ public:
     void Kruskul(){ //O(ElogE)
         sort(edges.begin(),edges.end());
         int mstCost = 0;
-        for(int i = 0; i<edges.size(); i++){
+        int count = 0;
+        for(int i = 0; i<edges.size() && count < V-1; i++){
             Edge e = edges[i];
             int parU = find(e.u);
             int parV = find(e.v);
             if(parU != parV){ //No Cycle
                 unionByRank(e.u,e.v);
                 mstCost += e.wt;
-
+                count++;
             }
         }
         cout<<"MST Cost : "<<mstCost<<endl;
@@ -83,3 +84,4 @@ int main(){
     graph.Kruskul();
     return 0;
 }
+//Output-> MST Cost : 19
