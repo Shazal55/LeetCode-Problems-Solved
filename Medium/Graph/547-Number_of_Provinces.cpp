@@ -28,3 +28,4 @@ int main(){
     cout<<"No. of Provinces in the graph : "<<findCircleNum(vec)<<endl;
     return 0;
 }
+//Output:- No. of Provinces in the graph : 2
