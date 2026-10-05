@@ -25,7 +25,7 @@ bool checkValidString(string s) {
     return low == 0;
 }
 int main(){
-    string s = "(*)))";
+    string s = "(*))";
     cout<<checkValidString(s)<<endl;
     return 0;
 }
